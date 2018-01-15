@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/sample_epoll_server.dir/Server.cpp.o CMakeFiles/sample_epoll_server.dir/server_main.cpp.o  -o sample_epoll_server 

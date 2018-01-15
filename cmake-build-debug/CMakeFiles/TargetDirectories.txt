@@ -1,0 +1,4 @@
+/home/oranngeoai/Documents/project/sample_epoll/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/oranngeoai/Documents/project/sample_epoll/cmake-build-debug/CMakeFiles/sample_epoll_client.dir
+/home/oranngeoai/Documents/project/sample_epoll/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/oranngeoai/Documents/project/sample_epoll/cmake-build-debug/CMakeFiles/sample_epoll_server.dir

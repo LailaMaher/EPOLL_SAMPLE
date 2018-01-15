@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/oranngeoai/Documents/project/sample_epoll/Server.cpp
+Server.h
+/home/oranngeoai/Documents/project/sample_epoll/Server.h
+
+/home/oranngeoai/Documents/project/sample_epoll/Server.h
+unistd.h
+-
+sys/types.h
+-
+string
+-
+string.h
+-
+iostream
+-
+netinet/in.h
+-
+sys/socket.h
+-
+arpa/inet.h
+-
+netdb.h
+-
+stdio.h
+-
+stdlib.h
+-
+
+/home/oranngeoai/Documents/project/sample_epoll/server_main.cpp
+Server.h
+/home/oranngeoai/Documents/project/sample_epoll/Server.h
+sys/epoll.h
+-
+
