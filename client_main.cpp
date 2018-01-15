@@ -59,30 +59,27 @@ int main(int argc, char const *argv[])
 
 	events = new struct epoll_event[MAX_EVENTS];
 
+	nr_events = epoll_wait (epfd, events, MAX_EVENTS, -1);
+
 	if (nr_events < 0) {
 		perror ("epoll_wait");
 		delete [] events;
 		return 1;
 	}
 
-	while (true){
+	for (i = 0; i < nr_events; i++) {
+        if(events[i].data.fd == cli_fd && events[i].events & EPOLLIN){
+            udp_client->acceptUser();
+        }
 
-        nr_events = epoll_wait (epfd, events, MAX_EVENTS, -1);
+		else if(events[i].data.fd == STDIN_FILENO && events[i].events & EPOLLIN){
+			string s;
+			cin >> s;
+			cout << "sent stream :: " << s << endl;
+            udp_client->SendStream(s);
+        }
+        else cout << "unknown event" << endl;
+    }
 
-        for (i = 0; i < nr_events; i++) {
-
-			if(events[i].data.fd == cli_fd && events[i].events & EPOLLIN){
-				udp_client->acceptUser();
-			}
-
-			else if(events[i].data.fd == STDIN_FILENO && events[i].events & EPOLLIN){
-				string s;
-				cin >> s;
-				cout << "sent stream :: " << s << endl;
-				udp_client->SendStream(s);
-			}
-			else cout << "unknown event" << endl;
-		}
-	}
 	return 0;
 }
