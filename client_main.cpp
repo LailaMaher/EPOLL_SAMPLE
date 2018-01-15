@@ -66,7 +66,7 @@ int main(int argc, char const *argv[])
 		delete [] events;
 		return 1;
 	}
-
+    while(true)
 	for (i = 0; i < nr_events; i++) {
         if(events[i].data.fd == cli_fd && events[i].events & EPOLLIN){
             udp_client->acceptUser();
