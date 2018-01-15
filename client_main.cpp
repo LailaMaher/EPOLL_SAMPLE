@@ -75,7 +75,7 @@ int main(int argc, char const *argv[])
 				udp_client->acceptUser();
 			}
 
-			else if(events[i].data.fd == cli_fd && events[i].events & EPOLLIN){
+			else if(events[i].data.fd == STDIN_FILENO && events[i].events & EPOLLIN){
 				string s;
 				cin >> s;
 				cout << "sent stream :: " << s << endl;
