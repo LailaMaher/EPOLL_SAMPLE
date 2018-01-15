@@ -59,8 +59,6 @@ int main(int argc, char const *argv[])
 
 	events = new struct epoll_event[MAX_EVENTS];
 
-	nr_events = epoll_wait (epfd, events, MAX_EVENTS, -1);
-
 	if (nr_events < 0) {
 		perror ("epoll_wait");
 		delete [] events;
@@ -69,7 +67,9 @@ int main(int argc, char const *argv[])
 
 	while (true){
 
-		for (i = 0; i < nr_events; i++) {
+        nr_events = epoll_wait (epfd, events, MAX_EVENTS, -1);
+
+        for (i = 0; i < nr_events; i++) {
 
 			if(events[i].data.fd == cli_fd && events[i].events & EPOLLIN){
 				udp_client->acceptUser();
